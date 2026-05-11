@@ -16,14 +16,17 @@ import java.util.UUID;
 @NoArgsConstructor
 public class EmailModel {
 
+    private final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID emailId;
+    private UUID userId;
     private String emailTo;
     private String emailFrom;
     private String emailSubject;
 
-    @Column(columnDefinition = "BODY")
+    @Column(columnDefinition = "TEXT")
     private String emailBody;
     private LocalDateTime sendDateEmail;
     private EmailStatus statusEmail;
