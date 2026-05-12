@@ -20,7 +20,7 @@ public class UserProducer {
     public void publishEvent(UserModel userModel) {
 
         String emailSubject ="Usuario Criado com sucesso!";
-        String emailBody = "Hello" + userModel.getName() + ",\n\n Seja bem vindo ao Verbum";
+        String emailBody = "Hello " + userModel.getName() + ", Seja bem vindo ao Verbum";
 
         var emailDto = new EmailDto(
                 userModel.getId(),
