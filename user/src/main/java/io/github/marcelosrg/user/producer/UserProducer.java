@@ -17,13 +17,16 @@ public class UserProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void sendUserCreatedEvent(UserModel userModel) {
+    public void publishEvent(UserModel userModel) {
+
+        String emailSubject ="Usuario Criado com sucesso!";
+        String emailBody = "Hello" + userModel.getName() + ",\n\n Seja bem vindo ao Verbum";
 
         var emailDto = new EmailDto(
                 userModel.getId(),
                 userModel.getEmail(),
-                "Bem vindo a Plataforma Verbum",
-                "Ola "
+                emailSubject,
+                emailBody
         );
 
        rabbitTemplate.convertAndSend("",rountingKey, emailDto);
